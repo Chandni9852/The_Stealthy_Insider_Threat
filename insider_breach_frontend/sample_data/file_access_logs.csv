@@ -1,0 +1,11 @@
+timestamp,username,file_path,action,ip_address
+2024-01-15 08:35:20,alice,/home/alice/documents/report.pdf,read,192.168.1.100
+2024-01-15 09:20:15,bob,/var/log/system.log,read,192.168.1.101
+2024-01-15 10:50:30,charlie,/etc/passwd,read,192.168.1.102
+2024-01-15 11:25:45,alice,/home/alice/documents/budget.xlsx,write,192.168.1.100
+2024-01-15 12:10:22,david,/var/www/html/index.html,read,192.168.1.103
+2024-01-15 13:35:18,eve,/home/eve/private/keys.txt,read,192.168.1.104
+2024-01-15 14:20:33,frank,/etc/shadow,read,192.168.1.105
+2024-01-15 15:05:12,alice,/home/alice/documents/strategy.docx,write,192.168.1.100
+2024-01-15 16:50:28,bob,/var/log/auth.log,read,192.168.1.101
+2024-01-15 17:35:45,grace,/home/grace/backup/config.yml,read,192.168.1.106 

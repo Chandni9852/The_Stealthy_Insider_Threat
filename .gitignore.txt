@@ -1,0 +1,17 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Node.js
+node_modules/
+build/
+dist/
+
+# Logs and dumps
+*.log
+*.csv
+*.json
+
+# Env
+.env
