@@ -45,6 +45,9 @@ def check_for_tampering():
         pd.DataFrame(tampered).to_csv("data/tampered_files.csv", index=False)
         print("🛑 File tampering detected!")
     else:
+        # Always write a file, even when clean, so downloads never 404
+        pd.DataFrame(columns=["file_path", "original_hash", "current_hash", "status"]).to_csv(
+            "data/tampered_files.csv", index=False)
         print("✅ No tampering detected.")
 
 

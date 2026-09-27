@@ -92,6 +92,22 @@ def run_tamper_check():
         return df.to_dict(orient="records")
     return {"message": "✅ No file tampering detected."}
 
+# ✅ Reset the hash registry to the file's CURRENT content (marks it "clean" again)
+@app.get("/reset-integrity-baseline")
+def reset_integrity_baseline():
+    create_registry(["sample_files/confidential.txt"])
+    return {"message": "Baseline hash registry reset — file now marked as clean."}
+
+# ✅ Demo helper: genuinely modifies the monitored file so SHA-256 tampering
+# detection has something real to catch on the next /tamper-check call.
+@app.get("/simulate-tampering")
+def simulate_tampering():
+    path = "sample_files/confidential.txt"
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "a") as f:
+        f.write(f"\n[unauthorized edit injected for demo] {pd.Timestamp.now()}\n")
+    return {"message": "File modified. Run tamper-check to detect it."}
+
 # ✅ Mount /data folder for downloads
 app.mount("/data", StaticFiles(directory="data"), name="data")
 
