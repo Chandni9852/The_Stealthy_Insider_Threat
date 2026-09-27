@@ -471,18 +471,6 @@ function App() {
             }}>
               Monitor and detect security breaches using advanced anomaly detection and file integrity monitoring
             </p>
-            <div style={{
-              display: 'flex',
-              justifyContent: 'center',
-              gap: '1rem',
-              marginTop: '1.5rem',
-              flexWrap: 'wrap'
-            }}>
-              <SecurityStatusIndicator status="secure" size="small" />
-              <ActivityIndicator isActive={true} type="monitor" size="small" />
-              <ActivityIndicator isActive={true} type="database" size="small" />
-              <ActivityIndicator isActive={true} type="network" size="small" />
-            </div>
           </div>
 
           {/* Backend Status - positioned to the right of header */}
@@ -506,8 +494,8 @@ function App() {
         isLoading={isLoadingBreachEvents || isCheckingTampering}
       />
 
-      {/* API Testing Section */}
-      <CollapsibleSection title="🔧 API Testing & Debug" defaultExpanded={true}>
+      {/* API Testing Section — collapsed by default; dev-only debug tool, not part of the main demo flow */}
+      <CollapsibleSection title="🔧 API Testing & Debug" defaultExpanded={false}>
         <TestAPI />
       </CollapsibleSection>
 
@@ -551,17 +539,6 @@ function App() {
                   <SecurityIllustration type="lock" size={120} color="var(--color-primary)" />
                 </div>
                 
-                {/* Security Status Header */}
-                <div className="security-status-header" style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  gap: '1rem',
-                  flexWrap: 'wrap'
-                }}>
-                  <SecurityStatusIndicator status="secure" size="small" />
-                  <ActivityIndicator isActive={true} type="monitor" size="small" />
-                  <ActivityIndicator isActive={true} type="database" size="small" />
-                </div>
                 <div style={{ marginBottom: '1.5rem', position: 'relative', zIndex: 1 }}>
                   <label className="file-input-label" style={{
                     display: 'inline-flex',
