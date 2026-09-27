@@ -38,7 +38,7 @@ const TestAPI = () => {
   return (
     <div style={{
       padding: '1rem',
-      background: 'rgba(255, 255, 255, 0.95)',
+      background: 'var(--color-surface)',
       border: '1px solid rgba(102, 126, 234, 0.2)',
       borderRadius: '12px',
       marginBottom: '1rem'
@@ -49,7 +49,7 @@ const TestAPI = () => {
         <button 
           onClick={runAllTests}
           style={{
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            background: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%)',
             color: 'white',
             border: 'none',
             padding: '0.5rem 1rem',

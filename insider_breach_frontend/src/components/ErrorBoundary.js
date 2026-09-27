@@ -34,7 +34,7 @@ class ErrorBoundary extends React.Component {
           alignItems: 'center',
           justifyContent: 'center',
           padding: '2rem',
-          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%)',
+          background: 'linear-gradient(135deg, var(--color-surface) 0%, rgba(248, 250, 252, 0.95) 100%)',
           backdropFilter: 'blur(10px)',
           border: '1px solid rgba(239, 68, 68, 0.2)',
           borderRadius: '12px',
@@ -43,7 +43,7 @@ class ErrorBoundary extends React.Component {
         }}>
           <AlertTriangle size={48} color="#ef4444" style={{ marginBottom: '1rem' }} />
           <h3 style={{
-            color: '#1e293b',
+            color: 'var(--color-text)',
             marginBottom: '0.5rem',
             fontSize: '1.25rem',
             fontWeight: '600'
@@ -65,7 +65,7 @@ class ErrorBoundary extends React.Component {
               alignItems: 'center',
               gap: '0.5rem',
               padding: '0.75rem 1.5rem',
-              background: 'linear-gradient(135deg, #667eea, #764ba2)',
+              background: 'linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))',
               color: 'white',
               border: 'none',
               borderRadius: '8px',

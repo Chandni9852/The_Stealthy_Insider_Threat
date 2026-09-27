@@ -61,7 +61,7 @@ import {
   Info
 } from 'lucide-react';
 
-const SecurityIcons = ({ type, size = 24, color = '#667eea', className = '' }) => {
+const SecurityIcons = ({ type, size = 24, color = 'var(--color-primary)', className = '' }) => {
   const iconMap = {
     // Security Icons
     shield: Shield,
@@ -236,7 +236,7 @@ export const NetworkStatusIndicator = ({ status, strength = 'high' }) => {
       alignItems: 'center',
       gap: '0.75rem',
       padding: '0.75rem 1rem',
-      background: 'rgba(255, 255, 255, 0.9)',
+      background: 'var(--color-surface)',
       border: `1px solid rgba(102, 126, 234, 0.2)`,
       borderRadius: '12px',
       boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
@@ -285,7 +285,7 @@ export const SystemHealthIndicator = ({ health, uptime, lastCheck }) => {
       flexDirection: 'column',
       gap: '0.5rem',
       padding: '1rem',
-      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%)',
+      background: 'linear-gradient(135deg, var(--color-surface) 0%, rgba(248, 250, 252, 0.95) 100%)',
       border: `1px solid rgba(102, 126, 234, 0.2)`,
       borderRadius: '12px',
       boxShadow: '0 4px 15px rgba(0, 0, 0, 0.05)',
@@ -305,7 +305,7 @@ export const SystemHealthIndicator = ({ health, uptime, lastCheck }) => {
           <span style={{
             fontSize: '1rem',
             fontWeight: '700',
-            color: '#1e293b'
+            color: 'var(--color-text)'
           }}>
             System Health
           </span>

@@ -221,7 +221,7 @@ const AnalyticsCharts = ({ breachEvents, tamperingResults }) => {
             width: '2rem', 
             height: '2rem',
             border: '3px solid rgba(102, 126, 234, 0.2)',
-            borderTopColor: '#667eea'
+            borderTopColor: 'var(--color-primary)'
           }}></div>
           <span style={{ marginLeft: '1rem', color: '#6b7280' }}>Loading analytics...</span>
         </div>
@@ -235,14 +235,14 @@ const AnalyticsCharts = ({ breachEvents, tamperingResults }) => {
       if (active && payload && payload.length) {
         return (
           <div style={{
-            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+            backgroundColor: 'var(--color-surface)',
             backdropFilter: 'blur(10px)',
             border: '1px solid rgba(102, 126, 234, 0.2)',
             borderRadius: '8px',
             padding: '12px',
             boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
           }}>
-            <p style={{ margin: 0, fontWeight: '600', color: '#1e293b' }}>{`Time: ${label}`}</p>
+            <p style={{ margin: 0, fontWeight: '600', color: 'var(--color-text)' }}>{`Time: ${label}`}</p>
             {payload.map((entry, index) => (
               <p key={index} style={{ 
                 margin: '4px 0 0 0', 
@@ -262,14 +262,14 @@ const AnalyticsCharts = ({ breachEvents, tamperingResults }) => {
       if (active && payload && payload.length) {
         return (
           <div style={{
-            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+            backgroundColor: 'var(--color-surface)',
             backdropFilter: 'blur(10px)',
             border: '1px solid rgba(102, 126, 234, 0.2)',
             borderRadius: '8px',
             padding: '12px',
             boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)'
           }}>
-            <p style={{ margin: 0, fontWeight: '600', color: '#1e293b' }}>{payload[0].name}</p>
+            <p style={{ margin: 0, fontWeight: '600', color: 'var(--color-text)' }}>{payload[0].name}</p>
             <p style={{ margin: '4px 0 0 0', color: payload[0].payload.color, fontWeight: '500' }}>
               {`Count: ${payload[0].value}`}
             </p>
@@ -293,7 +293,7 @@ const AnalyticsCharts = ({ breachEvents, tamperingResults }) => {
               width: '2rem', 
               height: '2rem',
               border: '3px solid rgba(102, 126, 234, 0.2)',
-              borderTopColor: '#667eea'
+              borderTopColor: 'var(--color-primary)'
             }}></div>
             <span style={{ marginLeft: '1rem', color: '#6b7280' }}>Loading analytics...</span>
           </div>
@@ -361,12 +361,12 @@ const AnalyticsCharts = ({ breachEvents, tamperingResults }) => {
         <div className="chart-card">
           <div className="chart-header">
             <div className="chart-title">
-              <Activity size={20} style={{ color: '#667eea' }} />
+              <Activity size={20} style={{ color: 'var(--color-primary)' }} />
               <h3>Real-time Activity Timeline</h3>
             </div>
             <div className="chart-legend">
               <div className="legend-item">
-                <div className="legend-color" style={{ backgroundColor: '#667eea' }}></div>
+                <div className="legend-color" style={{ backgroundColor: 'var(--color-primary)' }}></div>
                 <span>Logins</span>
               </div>
               <div className="legend-item">
@@ -379,8 +379,8 @@ const AnalyticsCharts = ({ breachEvents, tamperingResults }) => {
             <AreaChart data={chartData.timelineData}>
               <defs>
                 <linearGradient id="loginGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#667eea" stopOpacity={0.3}/>
-                  <stop offset="95%" stopColor="#667eea" stopOpacity={0.1}/>
+                  <stop offset="5%" stopColor="var(--color-primary)" stopOpacity={0.3}/>
+                  <stop offset="95%" stopColor="var(--color-primary)" stopOpacity={0.1}/>
                 </linearGradient>
                 <linearGradient id="anomalyGradient" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#ef4444" stopOpacity={0.3}/>
@@ -401,7 +401,7 @@ const AnalyticsCharts = ({ breachEvents, tamperingResults }) => {
               <Area 
                 type="monotone" 
                 dataKey="logins" 
-                stroke="#667eea" 
+                stroke="var(--color-primary)" 
                 fill="url(#loginGradient)"
                 strokeWidth={2}
               />
@@ -545,7 +545,7 @@ const AnalyticsCharts = ({ breachEvents, tamperingResults }) => {
         {/* Security Metrics Dashboard */}
         <div className="metrics-grid">
           <div className="metric-card">
-            <div className="metric-icon" style={{ background: 'linear-gradient(135deg, #667eea, #764ba2)' }}>
+            <div className="metric-icon" style={{ background: 'linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))' }}>
               <Zap size={24} />
             </div>
             <div className="metric-content">

@@ -1,3 +1,37 @@
+:root {
+  --color-bg: #f6f2ea;
+  --color-bg-alt: #efe8da;
+  --color-surface: #ffffff;
+  --color-surface-alt: #faf7f0;
+  --color-primary: #3d5a80;
+  --color-primary-dark: #293b52;
+  --color-primary-light: #6b87a8;
+  --color-text: #2b2620;
+  --color-text-muted: #6b7280;
+  --color-border: #e0d8c3;
+  --color-danger: #dc2626;
+  --color-danger-dark: #b91c1c;
+  --color-success: #059669;
+  --color-success-dark: #047857;
+}
+
+[data-theme="dark"] {
+  --color-bg: #1c1a17;
+  --color-bg-alt: #262320;
+  --color-surface: #2a2722;
+  --color-surface-alt: #322e28;
+  --color-primary: #7fa1c4;
+  --color-primary-dark: #3d5a80;
+  --color-primary-light: #a8c1da;
+  --color-text: #ede8dd;
+  --color-text-muted: #b3aca0;
+  --color-border: #423d34;
+  --color-danger: #f87171;
+  --color-danger-dark: #ef4444;
+  --color-success: #34d399;
+  --color-success-dark: #10b981;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,9 +44,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: #1e293b;
+  background: var(--color-bg);
+  color: var(--color-text);
   min-height: 100vh;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 code {
@@ -28,7 +63,7 @@ code {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--color-surface);
   backdrop-filter: blur(10px);
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
@@ -47,7 +82,7 @@ code {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark), var(--color-primary-light));
   background-size: 200% 100%;
   animation: gradientShift 3s ease infinite;
 }
@@ -74,8 +109,8 @@ code {
 .card-title {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #1e293b;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: var(--color-text);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -146,7 +181,7 @@ svg {
 /* Enhanced visibility for all interactive elements */
 .card-header button:hover svg,
 .card-header a:hover svg {
-  color: #667eea;
+  color: var(--color-primary);
   transform: scale(1.1);
   filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
 }
@@ -156,18 +191,18 @@ svg {
 .input:focus,
 .file-input-label:focus,
 .collapsible-header:focus {
-  outline: 2px solid #667eea;
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
   box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: white;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
 }
@@ -219,13 +254,13 @@ svg {
   border-radius: 12px;
   font-size: 0.875rem;
   transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--color-surface);
   backdrop-filter: blur(10px);
 }
 
 .input:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: var(--color-primary);
   box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
   transform: translateY(-1px);
 }
@@ -250,13 +285,13 @@ svg {
 
 .file-input-label:hover {
   background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
-  border-color: #667eea;
+  border-color: var(--color-primary);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
 }
 
 .file-input-label:hover svg {
-  color: #667eea;
+  color: var(--color-primary);
   transform: scale(1.1);
   filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
 }
@@ -278,7 +313,7 @@ svg {
 }
 
 .table th {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: white;
   font-weight: 600;
   text-transform: uppercase;
@@ -339,7 +374,7 @@ svg {
   height: 1.25rem;
   border: 3px solid rgba(102, 126, 234, 0.2);
   border-radius: 50%;
-  border-top-color: #667eea;
+  border-top-color: var(--color-primary);
   animation: spin 1s ease-in-out infinite;
 }
 
@@ -350,7 +385,7 @@ svg {
 }
 
 .status-area {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+  background: linear-gradient(135deg, var(--color-surface) 0%, rgba(248, 250, 252, 0.9) 100%);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(102, 126, 234, 0.2);
   border-radius: 12px;
@@ -375,7 +410,7 @@ svg {
   padding-right: 0.5rem;
   transform: translateX(4px);
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
-  border-left: 3px solid #667eea;
+  border-left: 3px solid var(--color-primary);
 }
 
 .status-item:last-child {
@@ -416,7 +451,7 @@ svg {
 }
 
 .collapsible-header {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+  background: linear-gradient(135deg, var(--color-surface) 0%, rgba(248, 250, 252, 0.95) 100%);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(102, 126, 234, 0.2);
   border-radius: 12px;
@@ -424,7 +459,7 @@ svg {
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 600;
-  color: #1e293b;
+  color: var(--color-text);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   display: flex;
   align-items: center;
@@ -439,12 +474,12 @@ svg {
 }
 
 .collapsible-header:hover .card-title {
-  color: #667eea;
+  color: var(--color-primary);
   text-shadow: 0 1px 2px rgba(102, 126, 234, 0.1);
 }
 
 .collapsible-header:hover svg {
-  color: #667eea;
+  color: var(--color-primary);
   transform: scale(1.1);
   filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
 }
@@ -456,7 +491,7 @@ svg {
 }
 
 .collapsible-content {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--color-surface);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(102, 126, 234, 0.2);
   border-top: none;
@@ -482,14 +517,14 @@ svg {
 }
 
 .upload-area:hover {
-  border-color: #667eea;
+  border-color: var(--color-primary);
   background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
 }
 
 .upload-area:hover svg {
-  color: #667eea;
+  color: var(--color-primary);
   transform: scale(1.1);
   filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
 }
@@ -514,7 +549,7 @@ svg {
 }
 
 .summary-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+  background: linear-gradient(135deg, var(--color-surface) 0%, rgba(248, 250, 252, 0.95) 100%);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(102, 126, 234, 0.2);
   border-radius: 16px;
@@ -533,7 +568,7 @@ svg {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark), var(--color-primary-light));
   background-size: 200% 100%;
   animation: gradientShift 3s ease infinite;
 }
@@ -585,7 +620,7 @@ svg {
 .summary-value {
   font-size: 2rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -603,7 +638,7 @@ svg {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: linear-gradient(180deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 50%, var(--color-primary-light) 100%);
   border-radius: 1px;
 }
 
@@ -633,7 +668,7 @@ svg {
 }
 
 .timeline-content {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--color-surface);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(102, 126, 234, 0.2);
   border-radius: 12px;
@@ -643,7 +678,7 @@ svg {
 }
 
 .timeline-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+  background: linear-gradient(135deg, var(--color-surface) 0%, rgba(248, 250, 252, 0.95) 100%);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(102, 126, 234, 0.2);
   border-radius: 12px;
@@ -666,8 +701,8 @@ svg {
 
 .timeline-user {
   font-weight: 600;
-  color: #1e293b;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: var(--color-text);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -697,12 +732,12 @@ svg {
 }
 
 .btn-download {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-danger) 100%);
   color: white;
 }
 
 .btn-download:hover {
-  background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+  background: linear-gradient(135deg, var(--color-danger) 0%, var(--color-danger-dark) 100%);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(240, 147, 251, 0.3);
 }
@@ -793,12 +828,12 @@ svg {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #5a67d8, #6b46c1);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
 }
 
 /* Analytics Charts Styles */
@@ -810,7 +845,7 @@ svg {
 }
 
 .chart-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+  background: linear-gradient(135deg, var(--color-surface) 0%, rgba(248, 250, 252, 0.95) 100%);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(102, 126, 234, 0.2);
   border-radius: 16px;
@@ -828,7 +863,7 @@ svg {
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-dark), var(--color-primary-light));
   background-size: 200% 100%;
   animation: gradientShift 3s ease infinite;
 }
@@ -857,7 +892,7 @@ svg {
   margin: 0;
   font-size: 1.25rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -892,7 +927,7 @@ svg {
 }
 
 .metric-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+  background: linear-gradient(135deg, var(--color-surface) 0%, rgba(248, 250, 252, 0.95) 100%);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(102, 126, 234, 0.2);
   border-radius: 12px;
@@ -938,7 +973,7 @@ svg {
   margin: 0 0 0.25rem 0;
   font-size: 1.75rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -1024,7 +1059,7 @@ svg {
 
 /* Enhanced security icons in upload area */
 .upload-area .security-status-header {
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--color-surface);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(102, 126, 234, 0.2);
   border-radius: 12px;

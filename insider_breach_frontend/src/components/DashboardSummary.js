@@ -21,10 +21,10 @@ const DashboardSummary = ({ breachEvents, tamperingResults, isLoading }) => {
       title: 'Total Logins Processed',
       value: stats.totalLogins,
       icon: Users,
-      gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      gradient: 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%)',
       bgGradient: 'linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%)',
       borderColor: 'rgba(102, 126, 234, 0.3)',
-      iconColor: '#667eea'
+      iconColor: 'var(--color-primary)'
     },
     {
       title: 'Anomalies Detected',
@@ -62,7 +62,7 @@ const DashboardSummary = ({ breachEvents, tamperingResults, isLoading }) => {
               width: '2rem', 
               height: '2rem',
               border: '3px solid rgba(102, 126, 234, 0.2)',
-              borderTopColor: '#667eea'
+              borderTopColor: 'var(--color-primary)'
             }}></div>
             <p style={{ 
               textAlign: 'center', 

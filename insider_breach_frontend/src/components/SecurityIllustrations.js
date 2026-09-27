@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Security-themed SVG illustrations
-export const SecurityShield = ({ size = 100, color = '#667eea' }) => (
+export const SecurityShield = ({ size = 100, color = 'var(--color-primary)' }) => (
   <svg width={size} height={size} viewBox="0 0 100 100" fill="none">
     <defs>
       <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -25,7 +25,7 @@ export const SecurityShield = ({ size = 100, color = '#667eea' }) => (
   </svg>
 );
 
-export const NetworkNodes = ({ size = 200, color = '#667eea' }) => (
+export const NetworkNodes = ({ size = 200, color = 'var(--color-primary)' }) => (
   <svg width={size} height={size} viewBox="0 0 200 200" fill="none">
     <defs>
       <linearGradient id="nodeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -138,7 +138,7 @@ export const ThreatRadar = ({ size = 120, color = '#ef4444' }) => (
   </svg>
 );
 
-export const LockIcon = ({ size = 80, color = '#667eea', isLocked = true }) => (
+export const LockIcon = ({ size = 80, color = 'var(--color-primary)', isLocked = true }) => (
   <svg width={size} height={size} viewBox="0 0 80 80" fill="none">
     <defs>
       <linearGradient id="lockGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -174,7 +174,7 @@ export const LockIcon = ({ size = 80, color = '#667eea', isLocked = true }) => (
   </svg>
 );
 
-export const SecurityDashboard = ({ size = 200, color = '#667eea' }) => (
+export const SecurityDashboard = ({ size = 200, color = 'var(--color-primary)' }) => (
   <svg width={size} height={size} viewBox="0 0 200 200" fill="none">
     <defs>
       <linearGradient id="dashboardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -213,7 +213,7 @@ export const SecurityDashboard = ({ size = 200, color = '#667eea' }) => (
 );
 
 // Main illustration component
-export const SecurityIllustration = ({ type = 'shield', size = 100, color = '#667eea', className = '' }) => {
+export const SecurityIllustration = ({ type = 'shield', size = 100, color = 'var(--color-primary)', className = '' }) => {
   const illustrations = {
     shield: SecurityShield,
     network: NetworkNodes,

@@ -35,6 +35,26 @@ import {
 } from './services/api';
 
 function App() {
+  // Dark mode
+  const [theme, setTheme] = useState(() => {
+    try {
+      return localStorage.getItem('theme') || 'light';
+    } catch {
+      return 'light';
+    }
+  });
+
+  React.useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    try {
+      localStorage.setItem('theme', theme);
+    } catch {
+      // ignore storage errors (e.g. private browsing)
+    }
+  }, [theme]);
+
+  const toggleTheme = () => setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+
   // State management
   const [loginLogsFile, setLoginLogsFile] = useState(null);
   const [fileAccessLogsFile, setFileAccessLogsFile] = useState(null);
@@ -386,15 +406,36 @@ function App() {
       <div className="container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
         <ToastContainer position="top-right" autoClose={5000} />
       
+        {/* Dark mode toggle */}
+        <button
+          onClick={toggleTheme}
+          aria-label="Toggle dark mode"
+          style={{
+            position: 'fixed',
+            top: '1rem',
+            right: '1rem',
+            zIndex: 1000,
+            background: 'var(--color-surface)',
+            border: '1px solid var(--color-border)',
+            borderRadius: '999px',
+            padding: '0.5rem 1rem',
+            cursor: 'pointer',
+            fontSize: '0.9rem',
+            color: 'var(--color-text)',
+            boxShadow: '0 2px 6px rgba(0,0,0,0.12)'
+          }}
+        >
+          {theme === 'light' ? '🌙 Dark mode' : '☀️ Light mode'}
+        </button>
+
         {/* Header with integrated status */}
         <div className="header-layout">
           {/* Main header content */}
           <div className="card" style={{ 
             textAlign: 'center', 
             flex: 1,
-            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%)',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(102, 126, 234, 0.2)',
+            background: 'var(--color-surface)',
+            border: '1px solid var(--color-border)',
             position: 'relative',
             overflow: 'hidden'
           }}>
@@ -404,14 +445,14 @@ function App() {
               left: 0,
               right: 0,
               height: '4px',
-              background: 'linear-gradient(90deg, #667eea, #764ba2, #f093fb)',
+              background: 'linear-gradient(90deg, var(--color-primary), var(--color-primary-dark), var(--color-primary-light))',
               backgroundSize: '200% 100%',
               animation: 'gradientShift 3s ease infinite'
             }}></div>
             <h1 style={{ 
               fontSize: '2.5rem', 
               fontWeight: '800', 
-              background: 'linear-gradient(135deg, #667eea, #764ba2)',
+              background: 'linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -507,7 +548,7 @@ function App() {
                   opacity: '0.1',
                   pointerEvents: 'none'
                 }}>
-                  <SecurityIllustration type="lock" size={120} color="#667eea" />
+                  <SecurityIllustration type="lock" size={120} color="var(--color-primary)" />
                 </div>
                 
                 {/* Security Status Header */}
@@ -527,7 +568,7 @@ function App() {
                     alignItems: 'center',
                     gap: '0.75rem',
                     padding: '1rem 1.5rem',
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%)',
+                    background: 'linear-gradient(135deg, var(--color-surface) 0%, rgba(248, 250, 252, 0.9) 100%)',
                     border: '2px solid rgba(102, 126, 234, 0.3)',
                     borderRadius: '12px',
                     cursor: 'pointer',
@@ -536,7 +577,7 @@ function App() {
                     boxShadow: '0 4px 15px rgba(0, 0, 0, 0.05)',
                     fontSize: '1rem'
                   }}>
-                    <Upload size={18} style={{ color: '#667eea' }} />
+                    <Upload size={18} style={{ color: 'var(--color-primary)' }} />
                     Select Login Logs (login_logs.csv)
                     <input
                       ref={loginLogsInputRef}
@@ -569,7 +610,7 @@ function App() {
                     alignItems: 'center',
                     gap: '0.75rem',
                     padding: '1rem 1.5rem',
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%)',
+                    background: 'linear-gradient(135deg, var(--color-surface) 0%, rgba(248, 250, 252, 0.9) 100%)',
                     border: '2px solid rgba(102, 126, 234, 0.3)',
                     borderRadius: '12px',
                     cursor: 'pointer',
@@ -578,7 +619,7 @@ function App() {
                     boxShadow: '0 4px 15px rgba(0, 0, 0, 0.05)',
                     fontSize: '1rem'
                   }}>
-                    <Upload size={18} style={{ color: '#667eea' }} />
+                    <Upload size={18} style={{ color: 'var(--color-primary)' }} />
                     Select File Access Logs (file_access_logs.csv)
                     <input
                       ref={fileAccessLogsInputRef}
@@ -612,7 +653,7 @@ function App() {
                   style={{
                     background: !loginLogsFile || !fileAccessLogsFile ? 
                       'linear-gradient(135deg, #9ca3af 0%, #6b7280 100%)' : 
-                      'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                      'linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%)',
                     transform: 'scale(1)',
                     transition: 'all 0.3s ease'
                   }}
@@ -813,7 +854,7 @@ function App() {
                     padding: '2rem',
                     color: '#6b7280'
                   }}>
-                    <SecurityIllustration type="dashboard" size={80} color="#667eea" />
+                    <SecurityIllustration type="dashboard" size={80} color="var(--color-primary)" />
                     <p style={{ marginTop: '1rem', fontSize: '1rem' }}>
                       No breach events found. Run detection first or click 'Refresh Events' to load data.
                     </p>

@@ -69,7 +69,7 @@ const BackendStatus = () => {
     }}>
       {/* Main Status Card */}
       <div style={{
-        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%)',
+        background: 'linear-gradient(135deg, var(--color-surface) 0%, rgba(248, 250, 252, 0.95) 100%)',
         backdropFilter: 'blur(10px)',
         border: `1px solid ${isOnline ? 'rgba(16, 185, 129, 0.3)' : 'rgba(239, 68, 68, 0.3)'}`,
         borderRadius: '12px',
@@ -92,7 +92,7 @@ const BackendStatus = () => {
             <span style={{
               fontSize: '1rem',
               fontWeight: '700',
-              color: '#1e293b'
+              color: 'var(--color-text)'
             }}>
               Backend Status
             </span>
@@ -101,7 +101,7 @@ const BackendStatus = () => {
             onClick={checkBackendStatus}
             disabled={isChecking}
             style={{
-              background: 'linear-gradient(135deg, #667eea, #764ba2)',
+              background: 'linear-gradient(135deg, var(--color-primary), var(--color-primary-dark))',
               color: 'white',
               border: 'none',
               borderRadius: '8px',
